@@ -16,6 +16,7 @@ This project seeks to replicate their results.
 
 
 ## Data
+
 ```{r}
 #| echo: true
 #| results: 'asis'
@@ -150,7 +151,7 @@ kable(grouped_summary, caption = "Summary by Treatment Group")
 ::::
 
 
-## Balance Test 
+### Balance Test 
 
 As an ad hoc test of the randomization mechanism, I provide a series of tests that compare aspects of the treatment and control groups to assess whether they are statistically significantly different from one another.
 
@@ -270,7 +271,7 @@ These findings mirror **Table 1** in *Karlan & List (2007)*, where the authors s
 First, I analyze whether matched donations lead to an increased response rate of making a donation. 
 
 <!-- _todo: make a barplot with two bars. Each bar is the proportion of people who donated. One bar for treatment and one bar for control._ -->
-## Proportion of Donors {#donation-barplot}
+### Proportion of Donors {#donation-barplot}
 
 ```{r}
 #| code-fold: true
@@ -317,7 +318,7 @@ ggplot(donate_summary, aes(x = group, y = prop_donated)) +
 
 <!-- _todo: run a t-test between the treatment and control groups on the binary outcome of whether any charitable donation was made. Also run a bivariate linear regression that demonstrates the same finding. (It may help to confirm your calculations match Table 2a Panel A.) Report your statistical results and interpret them in the context of the experiment (e.g., if you found a difference with a small p-value or that was statistically significant at some threshold, what have you learned about human behavior? Use mostly English words, not numbers or stats, to explain your finding.)_ -->
 
-## Treatment Effect on Donation Behavior
+### Treatment Effect on Donation Behavior
 
 ```{r}
 #| code-fold: true
@@ -353,7 +354,7 @@ In plain language: simply **mentioning a match offer nudged more people to give*
 
 <!-- _todo: run a probit regression where the outcome variable is whether any charitable donation was made and the explanatory variable is assignment to treatment or control. Confirm that your results replicate Table 3 column 1 in the paper._ -->
 
-## Probit Model of Donation Behavior
+### Probit Model of Donation Behavior
 
 ```{r}
 #| code-fold: true
@@ -381,13 +382,13 @@ This suggests that simply **mentioning a match offer** made people **more likely
 :::
 
 
-## Differences between Match Rates
+### Differences between Match Rates
 
 Next, I assess the effectiveness of different sizes of matched donations on the response rate.
 
 <!-- _todo: Use a series of t-tests to test whether the size of the match ratio has an effect on whether people donate or not. For example, does the 2:1 match rate lead increase the likelihood that someone donates as compared to the 1:1 match rate? Do your results support the "figures suggest" comment the authors make on page 8?_ -->
 
-## Testing the Effect of Match Size on Donations
+### Testing the Effect of Match Size on Donations
 
 ```{r}
 #| code-fold: true
@@ -430,7 +431,7 @@ This supports the authors’ comment on **page 8** of the paper that “larger m
 
 <!-- _todo: Assess the same issue using a regression. Specifically, create the variable `ratio1` then regress `gave` on `ratio1`, `ratio2`, and `ratio3` (or alternatively, regress `gave` on the categorical variable `ratio`). Interpret the coefficients and their statistical precision._ -->
 
-## Regression: Effect of Match Ratio on Giving
+### Regression: Effect of Match Ratio on Giving
 
 ```{r}
 #| code-fold: true
@@ -471,7 +472,7 @@ These results support the finding in the paper that simply **having a match** ma
 
 <!-- _todo: Calculate the response rate difference between the 1:1 and 2:1 match ratios and the 2:1 and 3:1 ratios.  Do this directly from the data, and do it by computing the differences in the fitted coefficients of the previous regression. what do you conclude regarding the effectiveness of different sizes of matched donations?_ -->
 
-## Difference in Response Rates Between Match Ratios
+### Difference in Response Rates Between Match Ratios
 
 ```{r}
 #| code-fold: true
@@ -527,7 +528,7 @@ We compared donation rates across match ratios using both raw data and regressio
 
 
 
-## Size of Charitable Contribution
+### Size of Charitable Contribution
 
 In this subsection, I analyze the effect of the size of matched donation on the size of the charitable contribution.
 
@@ -603,7 +604,7 @@ This result does **not** have a clean causal interpretation because the analysis
 
 <!-- _todo: Make two plot: one for the treatment group and one for the control. Each plot should be a histogram of the donation amounts only among people who donated. Add a red vertical bar or some other annotation to indicate the sample average for each plot._ -->
 
-## Donation Amounts by Group (Only Donors)
+### Donation Amounts by Group (Only Donors)
 
 ```{r}
 #| code-fold: true
@@ -654,7 +655,7 @@ ggplot(df_trimmed, aes(x = amount)) +
 
 
 
-## Simulation Experiment
+### Simulation Experiment
 
 As a reminder of how the t-statistic "works," in this section I use simulation to demonstrate the Law of Large Numbers and the Central Limit Theorem.
 
@@ -662,7 +663,7 @@ Suppose the true distribution of respondents who do not get a charitable donatio
 
 Further suppose that the true distribution of respondents who do get a charitable donation match of any size  is Bernoulli with probability p=0.022 that a donation is made.
 
-## Law of Large Numbers
+### Law of Large Numbers
 
 <!-- _to do:  Make a plot like those on slide 43 from our first class and explain the plot to the reader. To do this, you will simulate 100,00 draws from the control distribution and 10,000 draws from the treatment distribution. You'll then calculate a vector of 10,000 differences, and then you'll plot the cumulative average of that vector of differences. Comment on whether the cumulative average approaches the true difference in means._ -->
 
